@@ -45,14 +45,15 @@ rede_neural.fit(X_treinamento, y_treinamento, batch_size = 10, epochs = 100) #ba
 
 #--------------------------------------------- avaliando a rede neural ---------------------------------------------#
 
-previsores = rede_neural.predict(X_teste)
-previsores = (previsores > 0.5)
 
-accuracy_score(y_teste, previsores)   #acurácia da rede neural  #verdadeiro positivo + verdadeiro negativo / total
-print(accuracy_score(y_teste, previsores))
+#previsores = rede_neural.predict(X_teste)
+#previsores = (previsores > 0.5)
 
-confusion_matrix(y_teste, previsores) #matriz de confusão da rede neural #verdadeiro positivo, falso positivo, verdadeiro negativo, falso negativo
-print(confusion_matrix(y_teste, previsores))
+#accuracy_score(y_teste, previsores)   #acurácia da rede neural  #verdadeiro positivo + verdadeiro negativo / total
+#print(accuracy_score(y_teste, previsores))
 
-rede_neural.evaluate(X_teste, y_teste) #avaliação da rede neural #loss e acurácia
-print(rede_neural.evaluate(X_teste, y_teste))
+#confusion_matrix(y_teste, previsores) #matriz de confusão da rede neural #verdadeiro positivo, falso positivo, verdadeiro negativo, falso negativo
+#print(confusion_matrix(y_teste, previsores))
+
+#rede_neural.evaluate(X_teste, y_teste) #avaliação da rede neural #loss e acurácia
+#print(rede_neural.evaluate(X_teste, y_teste))
