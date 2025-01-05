@@ -22,7 +22,11 @@ X_treinamento, X_teste, y_treinamento, y_teste = train_test_split(X, y, test_siz
 rede_neural = Sequential(
     [
         tf.keras.layers.InputLayer(shape = (30,)), #camada de entrada com 30 neurônios
-        tf.keras.layers.Dense(units = 16, activation = 'relu', kernel_initializer = 'random_uniform' ), #camada oculta com 16 neurônios 30 unidades de entrada + 1 unidade de saída / 2 = 16(arrendondado)
+
+        #camada oculta com 16 neurônios 30 unidades de entrada + 1 unidade de saída / 2 = 16(arrendondado)
+        tf.keras.layers.Dense(units = 16, activation = 'relu', kernel_initializer = 'random_uniform' ),
+        tf.keras.layers.Dense(units = 16, activation = 'relu', kernel_initializer = 'random_uniform' ),
+
         tf.keras.layers.Dense(units = 1, activation = 'sigmoid'), #camada de saída com 1 neurônio
     ]
 )
@@ -30,7 +34,8 @@ rede_neural = Sequential(
 rede_neural.summary()   
 #--------------------------------------------- compilando a rede neural ---------------------------------------------#
 
-rede_neural.compile(optimizer = 'adam', loss = 'binary_crossentropy', metrics = ['binary_accuracy']) #adam = algoritmo de otimização 
+otimizador = tf.keras.optimizers.Adam(learning_rate = 0.001, clipvalue = 0.5) #otimizador Adam 
+rede_neural.compile(optimizer = otimizador, loss = 'binary_crossentropy', metrics = ['binary_accuracy']) #adam = algoritmo de otimização 
                                                                                                      # binary_crossentropy = função de perda para classificação binária
                                                                                                      # loss = função de perda
 
