@@ -1,7 +1,0 @@
-matplotlib
-minisom
-numpy
-pandas
-scikeras
-scikit-learn
-tensorflow
